@@ -56,7 +56,6 @@ class BrowserManager{
         await this.page.goto(`https://rocket-league.com/trades/${this.username}`, {
             waitUntil: 'networkidle2'
         });
-        console.log(trades);
         let res = await this.page.evaluate(trades => {
             
             for(let i = 0; i < trades.length; i++){
@@ -79,7 +78,7 @@ var bm = undefined
 module.exports = async () => {
     if(bm == undefined){
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             defaultViewport: {
                 width: 1150,
                 height: 800

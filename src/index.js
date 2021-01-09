@@ -1,7 +1,7 @@
 require('dotenv').config();
 const moment = require('moment');
 
-console.log(`    ___  __     ___  ____  ______\n   / _ \\/ /    / _ )/ __ \\/_  __/\n  /   _/ /__  / _  / /_/ / / /   \n /_/|_/____/ /____/\\____/ /_/`);
+console.log(`    ___  __     ___  ____  ______\n   / _ \\/ /    / _ )/ __ \\/_  __/\n  /   _/ /__  / _  / /_/ / / /   \n /_/|_/____/ /____/\\____/ /_/${process.env.npm_package_version}`);
 console.log('\n     A bot for rl garage\n');
 
 async function main(){
