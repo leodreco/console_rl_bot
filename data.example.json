@@ -1,0 +1,9 @@
+{
+    "trades": [
+        {
+            "name": "offer1",
+            "cod": "0000000000",
+            "bump_minute": 0
+        }
+    ]
+}
