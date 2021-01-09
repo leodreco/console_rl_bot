@@ -1,14 +1,14 @@
 require('dotenv').config();
-const moment = require('moment');
+const Console = require('./Console');
 
-console.log(`    ___  __     ___  ____  ______\n   / _ \\/ /    / _ )/ __ \\/_  __/\n  /   _/ /__  / _  / /_/ / / /   \n /_/|_/____/ /____/\\____/ /_/${process.env.npm_package_version}`);
-console.log('\n     A bot for rl garage\n');
+Console.green(`    ___  __     ___  ____  ______\n   / _ \\/ /    / _ )/ __ \\/_  __/\n  /   _/ /__  / _  / /_/ / / /   \n /_/|_/____/ /____/\\____/ /_/${process.env.npm_package_version}`);
+Console.green('\n     A bot for rl garage\n');
 
 async function main(){
     let browserManager = await require('./BrowserManager')();
-    console.log(moment().format('HH:mm:ss'), 'Cargando...');
+    Console.log('Cargando...');
     let usuario = await browserManager.login(process.env.EMAIL, process.env.PASSWORD);
-    console.log(moment().format('HH:mm:ss'), `Logueado como ${usuario}`);
+    Console.log(`Logueado como ${usuario}`);
     require('./jobs')();
 }
 

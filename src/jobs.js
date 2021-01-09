@@ -1,5 +1,5 @@
 const CronJob  = require('cron').CronJob;
-const moment = require('moment');
+const Console = require('./Console');
 const tradeManager = require('./TradeManager');
 var browserManager;
 
@@ -9,11 +9,11 @@ const everyMinute = new CronJob('* * * * *', async () => {
     
 
     if(trades.length > 0){
-        console.log(moment().format('HH:mm:ss'), `Bumpeando ${trades.length} ${trades.length == 1 ? 'anuncio' : 'anuncios'}`);
+        Console.log(`Bumpeando ${trades.length} ${trades.length == 1 ? 'anuncio' : 'anuncios'}`);
         let bumpTrades = await browserManager.bump(trades);
         tradeManager.update(bumpTrades);
     }else{
-        console.log(moment().format('HH:mm:ss'), '...');
+        Console.log('...');
     }
 });
 
