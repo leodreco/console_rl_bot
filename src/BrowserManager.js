@@ -86,10 +86,16 @@ class BrowserManager{
 
 var bm = undefined
 
+var headless = true;
+if(process.env.HEADLESS != undefined
+&& process.env.HEADLESS.toLowerCase() == 'false'){
+    headless = false
+}
+
 module.exports = async () => {
     if(bm == undefined){
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: headless,
             defaultViewport: {
                 width: 1150,
                 height: 800
