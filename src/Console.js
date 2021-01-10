@@ -6,8 +6,8 @@ class Console{
     static green(str){
         console.log(green + str + reset);
     }
-    static log(str){
-        console.log(green + moment().format('HH:mm:ss'), reset, str);
+    static log(...str){
+        console.log(green + moment().format('HH:mm:ss'), reset, ...str);
     }
 }
 

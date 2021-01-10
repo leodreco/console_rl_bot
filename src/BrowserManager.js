@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const { MissingEnvError, BadCredentialsError } = require('./errors');
 
 class BrowserManager{
     browser;
@@ -10,12 +11,18 @@ class BrowserManager{
     }
 
     async login(email, password){
+
+        if(email == undefined || password == undefined
+        || email == '' || password == ''){
+            throw new MissingEnvError('Undefined credentials');
+        }
+
         this.page = (await this.browser.pages())[0];
-        
+                
         await this.page.goto('https://rocket-league.com/', {
             waitUntil: 'domcontentloaded'
         });
-
+        
         // Aceptar politica de privacidad
         if(await this.page.$('#acceptPrivacyPolicy') !== null){
             await Promise.all([
@@ -40,7 +47,11 @@ class BrowserManager{
         ]);
         
         let username = await this.page.evaluate(() => {
-            return document.querySelector('.rlg-header-main-welcome-user >a > span').textContent;
+            let usernameSpan = document.querySelector('.rlg-header-main-welcome-user >a > span');
+            if(!!usernameSpan){
+                return usernameSpan.textContent;
+            }
+            return undefined
         });
 
         if(!!username){
@@ -48,7 +59,7 @@ class BrowserManager{
             this.username = username;
             return username;
         }else{
-            return false;
+            throw new BadCredentialsError('Bad credentials');
         }
     }
 
@@ -78,7 +89,7 @@ var bm = undefined
 module.exports = async () => {
     if(bm == undefined){
         let browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             defaultViewport: {
                 width: 1150,
                 height: 800
