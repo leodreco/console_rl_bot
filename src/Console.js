@@ -1,8 +1,14 @@
 const moment = require('moment');
 
 const reset = '\x1b[0m';
+
+const underscore = '\x1b[4m';
+
 const red = '\x1b[31m';
 const green = '\x1b[32m';
+const cyan = '\x1b[36m';
+
+
 
 class Console{
     static green(str){
@@ -15,6 +21,10 @@ class Console{
 
     static error(...str){
         console.log(red + moment().format('HH:mm:ss'), reset, ...str);
+    }
+
+    static underscore(str){
+        return underscore + cyan + str + reset;
     }
 }
 
