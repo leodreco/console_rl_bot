@@ -72,7 +72,12 @@ class BrowserManager{
             for(let i = 0; i < trades.length; i++){
                 let button = document.querySelector(`button[data-alias="${trades[i].cod}"]`);
                 if(!!button){
-                    trades[i].bump_minute++;
+                    if(trades[i].bump_minute >= 14){
+                        trades[i].bump_minute = 0;
+                    }else{
+                        trades[i].bump_minute++;
+                    }
+                    
                     trades[i].ignore = true;
                     button.click();
                 }
