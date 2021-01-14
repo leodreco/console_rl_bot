@@ -1,0 +1,38 @@
+{
+    "es": {
+        "intro": "Un bot para rl garage",
+        "loading": "Cargando...",
+        "logged_in": "Logueado como",
+        "jobs": {
+            "bump": {
+                "bump": "Bumpeando",
+                "trade": "tradeo",
+                "trades": "tradeos"
+            }
+        },
+        "errors": {
+            "MissingEnvError": "Credenciales indefinidas y/o archivo .env inexistente",
+            "BadCredentialsError": "Credenciales incorrectas, cambialas en el archivo .env",
+            "TimeoutError": "Tiempo de respuesta exedido",
+            "default": "Error desconocido"
+        }
+    },
+    "en": {
+        "intro": "\n      A bot for rl garage\n",
+        "loading": "Loading...",
+        "logged_in": "Logged in as",
+        "jobs": {
+            "bump": {
+                "bump": "Bumping",
+                "trade": "trade",
+                "trades": "trades"
+            }
+        },
+        "errors": {
+            "MissingEnvError": "Undefined credentials and/or nonexistent .env file",
+            "BadCredentialsError": "Wrong credentials, change them in the .env file",
+            "TimeoutError": "Response time exceeded",
+            "default": "Unknow error"
+        }
+    }
+}
