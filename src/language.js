@@ -2,9 +2,9 @@ const strings = require('../languages.json');
 
 var lang_strings;
 
-switch(process.env.LANG.toLowerCase()){
+switch(process.env.LANGUAGE.toLowerCase()){
     case 'es':
-        lang_strings = strings['en'];
+        lang_strings = strings['es'];
         break;
     default:
         lang_strings = strings['en'];
