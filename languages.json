@@ -1,8 +1,10 @@
 {
     "es": {
-        "intro": "Un bot para rl garage",
-        "loading": "Cargando...",
-        "logged_in": "Logueado como",
+        "index": {
+            "intro": "\n       Un bot para rl garage\n",
+            "loading": "Cargando...",
+            "logged_in": "Logueado como"
+        },
         "jobs": {
             "bump": {
                 "bump": "Bumpeando",
@@ -18,9 +20,11 @@
         }
     },
     "en": {
-        "intro": "\n      A bot for rl garage\n",
-        "loading": "Loading...",
-        "logged_in": "Logged in as",
+        "index": {
+            "intro": "\n       A bot for rl garage\n",
+            "loading": "Loading...",
+            "logged_in": "Logged in as"
+        },
         "jobs": {
             "bump": {
                 "bump": "Bumping",

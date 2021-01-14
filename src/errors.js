@@ -1,5 +1,6 @@
 const Console = require('./Console');
 const { TimeoutError } = require('puppeteer').errors;
+const errorText = require('./language').errors;
 
 class MissingEnvError extends Error{
     constructor(message){
@@ -17,15 +18,15 @@ class BadCredentialsError extends Error{
 
 function errorManager(ex){
     if(ex instanceof MissingEnvError){
-        Console.error('Credenciales indefinidas y/o archivo .env inexistente');
+        Console.error(errorText.MissingEnvError);
         process.exit();
     }else if(ex instanceof BadCredentialsError){
-        Console.error('Credenciales incorrectas\nCambialas en el archivo .env');
+        Console.error(errorText.BadCredentialsError);
         process.exit();
     }else if(ex instanceof TimeoutError){
-        Console.error('Tiempo de respuesta exedido');
+        Console.error(errorText.TimeoutError);
     }else{
-        Console.error('Error desconocido', ex);
+        Console.error(errorText.default, ex);
     }
 }
 
