@@ -32,4 +32,10 @@ class TradeManager{
     }
 }
 
-module.exports = new TradeManager(trades);
+module.exports = new TradeManager(trades.filter(trade => {
+    if(trade.enabled !== undefined
+    && trade.enabled === false){
+        return false;
+    }
+    return true;
+}));
